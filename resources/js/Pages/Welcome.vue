@@ -19,7 +19,7 @@ defineProps({
   <Head title="Welcome" />
   <Layout>
     <div class="max-w-2xl mx-auto text-center py-16 text-xl border rounded shadow">
-      Coming Soon
+      Coming Soon - Staging
     </div>
 
   </Layout>
