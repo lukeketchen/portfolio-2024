@@ -13,7 +13,19 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: [
+                    'Figtree',
+                    ...defaultTheme.fontFamily.sans
+                ],
+                serif: [
+                    'Virgil',
+                    ...defaultTheme.fontFamily.serif
+                ],
+                // serif: ['Noto Serif', ...defaultTheme.fontFamily.serif],
+                code: [
+                    'Fira Code',
+                    ...defaultTheme.fontFamily.mono
+                ],
             },
         },
     },
