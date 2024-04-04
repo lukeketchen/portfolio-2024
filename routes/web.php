@@ -12,5 +12,14 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/project/{id}', function ($id) {
+
+    // TODO - Add an if exists project check here
+
+    return Inertia::render('Project', [
+        'projectId' => $id,
+    ]);
+})->name('project');
+
 
 require __DIR__ . '/auth.php';
