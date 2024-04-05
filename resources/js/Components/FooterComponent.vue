@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div id="footer" class="border rounded grid grid-cols-3 py-4 px-12">
+  <div id="footer" class="grid grid-cols-3 py-4 px-12">
     <div class="col-start-2 flex items-center justify-center font-serif">
       Luke Ketchen &copy; 2024
     </div>
