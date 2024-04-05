@@ -20,6 +20,13 @@ import ApplicationLogo from "@/Components/ApplicationLogo.vue";
       <Link href="/#portfolio" class="text-lg">Portfolio</Link>
       <Link href="/#contact" class="text-lg">Contact</Link>
       <Link href="/#resume" class="text-lg">Resume</Link>
+      <Link href="/blog" class="text-lg font-serif flex">"Talking Rubbish"
+        <div class="w-5 ml-1">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+          </svg>
+        </div>
+      </Link>
     </div>
   </div>
 </template>
