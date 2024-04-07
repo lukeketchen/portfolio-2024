@@ -7,3 +7,7 @@
     font-family: 'Virgil';
     src: url('../../public/fonts/Virgil.woff2') format('woff2');
 }
+
+html {
+    scroll-behavior: smooth;
+}

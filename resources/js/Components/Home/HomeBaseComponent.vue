@@ -13,10 +13,9 @@ const profileImage = ref(new URL(`/public/images/profile pic 2019.png`, import.m
 <template>
   <div class="flex">
     <div class="w-1/2">
-      <div class="text-xs">Hi, my name is</div>
       <div class="text-[100px] font-code -ml-2">Luke Ketchen</div>
       <div class="text-[30px] mb48">I am a backend / full-stack developer</div>
-      <div class="max-w-xl">
+      <div class="max-w-xl font-code">
         I am chasing my dream career after switching from Electrician at
         age 30 with visions of becoming a wizard behind the keyboard.
       </div>

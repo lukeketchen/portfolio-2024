@@ -21,7 +21,6 @@ export default {
                     'Virgil',
                     ...defaultTheme.fontFamily.serif
                 ],
-                // serif: ['Noto Serif', ...defaultTheme.fontFamily.serif],
                 code: [
                     'Fira Code',
                     ...defaultTheme.fontFamily.mono

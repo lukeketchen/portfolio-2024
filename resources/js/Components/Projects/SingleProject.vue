@@ -27,7 +27,7 @@ onMounted(() => {
 
 <template>
   <div>
-    <div>
+    <div class="eggs">
       Project
       {{ projectId }}
     </div>
@@ -35,6 +35,8 @@ onMounted(() => {
       <h1>{{ project.title }}</h1>
       <p>{{ project.description }}</p>
       <img :src="project.image_url" alt="Project Image">
+    </div>
+    <div v-html="project.content">
     </div>
   </div>
 </template>

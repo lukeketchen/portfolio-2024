@@ -1,17 +1,16 @@
 <script setup>
 
+import Layout from "@/Layouts/Layout.vue";
 </script>
 
 <template>
-  <div>
-    <h1>Blog</h1>
-  </div>
+  <Layout>
+    <template #default>
+      <h1>Blog</h1>
 
-  <div>
-    List Articles
-  </div>
+      <div>
+        Coming soon...
+      </div>
+    </template>
+  </Layout>
 </template>
-
-<style scoped>
-
-</style>

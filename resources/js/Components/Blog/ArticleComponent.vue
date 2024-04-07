@@ -1,5 +1,6 @@
 <script setup>
 import {defineProps} from "vue";
+import Layout from "@/Layouts/Layout.vue";
 
 const props = defineProps({
   articleId: {
@@ -10,10 +11,15 @@ const props = defineProps({
 </script>
 
 <template>
-  <div>
-    <h1>Article {{ articleId }}</h1>
-  </div>
+  <Layout>
+    <template #default>
+      <h1>Article</h1>
 
+      <div>
+        Article {{ articleId }}
+      </div>
+    </template>
+  </Layout>
 </template>
 
 <style scoped>
