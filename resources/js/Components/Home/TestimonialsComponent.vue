@@ -15,7 +15,7 @@ const testimonials = ref([
 <template>
   <div id="testimonials" class="my-56">
     <div class="flex gap-16 mt-24">
-      <div v-for="testimonial in testimonials" :key="testimonial.name" class="px-8 pb-4 pt-16 border border-black rounded-xl relative">
+      <div v-for="testimonial in testimonials" :key="testimonial.name" class="px-8 pb-4 pt-16 border-4 border-blue-300 rounded-xl relative">
         <div class="absolute -top-12 left-1/2">
           <img :src="testimonial.logo" alt="Testimonial" width="150" height="150" class="transform -translate-x-1/2 w-24 h-24 mx-auto">
         </div>

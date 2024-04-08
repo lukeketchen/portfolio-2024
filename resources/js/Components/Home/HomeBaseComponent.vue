@@ -19,6 +19,13 @@ const profileImage = ref(new URL(`/public/images/profile pic 2019.png`, import.m
         I am chasing my dream career after switching from Electrician at
         age 30 with visions of becoming a wizard behind the keyboard.
       </div>
+      <div>
+        <div class="mt-2 flex flex-col font-code">
+          <a href="https://github.com/lukeketchen" target="_blank" class="text-blue-500">
+            Check out my GitHub
+          </a>
+        </div>
+      </div>
       <div class="mt-8">
         <PrimaryButton>
           Download Resume
