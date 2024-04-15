@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\Admin\AdminProjectsController;
 use App\Http\Controllers\Api\V1\ArticleController;
 use App\Http\Controllers\Api\V1\ProjectController;
 use Illuminate\Http\Request;
@@ -13,4 +14,15 @@ Route::get('/user', function (Request $request) {
 Route::group(['prefix' => 'v1'], function () {
     Route::resource('/projects', ProjectController::class);
     Route::resource('/articles', ArticleController::class);
+
+    Route::group(['prefix' => '/admin'], function () {
+//        Route::resource('/projects', AdminProjectsController::class);
+
+
+//    })->middleware('auth:api');
+    })->middleware('auth:sanctum');
+
+
+    Route::resource('/admin/projects', AdminProjectsController::class);
 });
+

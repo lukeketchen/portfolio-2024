@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\ProjectStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -25,7 +26,7 @@ return new class extends Migration {
             $table->string('category')->default('web');
             $table->string('platform')->default('web');
             $table->string('framework')->nullable();
-            $table->string('status')->default('completed');
+            $table->enum('status', ProjectStatus::getValues())->default(ProjectStatus::Draft);
             $table->date('start_date');
             $table->timestamps();
             $table->softDeletes();

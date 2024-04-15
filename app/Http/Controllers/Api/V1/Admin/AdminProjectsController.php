@@ -1,37 +1,38 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers\Api\V1\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class ProjectController extends Controller
+class AdminProjectsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(): JsonResponse
     {
-        $data = Project::where('status', 'active')->get();
+//        auth()->check();
+//
+//        $userId = auth()->check() ? auth()->id() : null;
+//
+        $id = Auth::id();
+
+        dd($id);
+
+        $data = auth()->user();
+
+
+//        $data = Project::all();
 
         return response()->json([
             'data' => $data,
             'response_code' => 200,
             'message' => 'Success'
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-        return response()->json([
-            'message' => 'Not Found'
-        ], 404);
     }
 
     /**
@@ -48,9 +49,9 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(int $id): JsonResponse
+    public function show(int $id)
     {
-        $data = Project::where('status', 'active')->find($id);
+        $data = Project::find($id);
 
         return response()->json([
             'data' => $data,
@@ -60,22 +61,10 @@ class ProjectController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Project $project)
-    {
-        //
-        return response()->json([
-            'message' => 'Not Found'
-        ], 404);
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Project $project)
+    public function update(Request $request, int $id)
     {
-        //
         return response()->json([
             'message' => 'Not Found'
         ], 404);
@@ -84,9 +73,8 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Project $project)
+    public function destroy(int $id)
     {
-        //
         return response()->json([
             'message' => 'Not Found'
         ], 404);

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\ProjectStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -30,7 +31,7 @@ class ProjectFactory extends Factory
             'category' => $this->faker->randomElement(['web', 'mobile', 'desktop']),
             'platform' => $this->faker->randomElement(['web', 'android', 'ios', 'windows', 'macos', 'linux']),
             'framework' => $this->faker->sentence(3),
-            'status' => $this->faker->randomElement(['completed', 'in_progress', 'abandoned']),
+            'status' => $this->faker->randomElement(ProjectStatus::getValues()),
             'start_date' => $this->faker->date(),
         ];
     }
