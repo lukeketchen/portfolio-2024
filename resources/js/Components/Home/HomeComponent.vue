@@ -10,6 +10,7 @@ import ResumeComponent from "@/Components/Home/ResumeComponent.vue";
 import FooterComponent from "@/Components/FooterComponent.vue";
 import HomeBaseComponent from "@/Components/Home/HomeBaseComponent.vue";
 import CurrentMusicComponent from "@/Components/Home/CurrentMusicComponent.vue";
+
 </script>
 
 <template>

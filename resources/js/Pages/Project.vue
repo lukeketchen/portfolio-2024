@@ -3,7 +3,8 @@ import {defineProps} from "vue";
 import ProjectComponent from "@/Components/Projects/ProjectComponent.vue";
 
 const props = defineProps({
-  projectId: Number,
+  projectId: String,
+  required: true
 });
 </script>
 

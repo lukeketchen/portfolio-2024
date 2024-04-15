@@ -24,7 +24,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        Article::factory(10)->create();
-        Project::factory(10)->create();
+        Article::factory(10)->create([
+            'image_url' => 'dummyimage.png'
+        ]);
+        $this->call([
+            ProjectSeeder::class,
+        ]);
     }
 }

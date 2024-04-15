@@ -7,7 +7,8 @@ import SingleProject from "@/Components/Projects/SingleProject.vue";
 import FooterComponent from "@/Components/FooterComponent.vue";
 
 const props = defineProps({
-  projectId: Number,
+  projectId: String,
+  required: true
 });
 
 </script>
