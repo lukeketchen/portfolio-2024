@@ -9,7 +9,11 @@ function getProjects() {
         projects.value = response.data.data;
       })
       .catch(error => {
-        
+        swal({
+          title: "oh no!",
+          text: "Unable to fetch projects",
+          icon: "error",
+        });
         console.log(error);
       });
 }
