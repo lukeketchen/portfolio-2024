@@ -94,10 +94,7 @@ const markdownInputToHtml = computed(() => {
       </div>
     </div>
 
-    <div class="flex justify-between">
-      <div>
-        {{ project.start_date }}
-      </div>
+    <div class="flex justify-end">
       <div class="flex">
         <div>
           set Active

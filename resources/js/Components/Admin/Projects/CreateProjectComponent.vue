@@ -33,13 +33,17 @@ const newProject = ref({
   technologies: '',
   duration: '',
   framework: 'laravel',
-  start_date: dayjs(),
   is_active: false
 })
 
 function createProject() {
   axios.post('/admin/admin-projects', newProject.value)
       .then(response => {
+        swal({
+          title: "Success!",
+          text: "Project created successfully",
+          icon: "success",
+        })
         clearProject();
       })
       .catch(error => {
@@ -111,7 +115,6 @@ function clearProject() {
     technologies: '',
     duration: '',
     framework: 'laravel',
-    start_date: dayjs(), // Require
     is_active: false
   }
 }
@@ -144,10 +147,7 @@ const markdownInputToHtml = computed(() => {
       </PrimaryButton>
     </div>
 
-    <div class="flex justify-between">
-      <div>
-        {{ newProject.start_date }}
-      </div>
+    <div class="flex justify-end">
       <div class="flex">
         <div>
           set Active

@@ -68,7 +68,7 @@ class AdminProjectsController extends BaseController
                 'string',
             ],
             'start_date' => [
-                'required',
+                'nullable',
                 'date',
             ],
             'is_active' => [
@@ -156,7 +156,7 @@ class AdminProjectsController extends BaseController
                 'string',
             ],
             'start_date' => [
-                'required',
+                'nullable',
                 'date',
             ],
             'is_active' => [

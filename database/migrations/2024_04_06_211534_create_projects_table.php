@@ -27,7 +27,7 @@ return new class extends Migration {
             $table->string('platform')->default('web');
             $table->string('framework')->nullable();
             $table->enum('status', ProjectStatus::getValues())->default(ProjectStatus::Draft);
-            $table->date('start_date');
+            $table->date('start_date')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
