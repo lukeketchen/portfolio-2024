@@ -33,7 +33,7 @@ const markdownToHtml = computed(() => { return project.value.content ? marked(pr
 <template>
   <div v-if="!loading">
     <div class="rounded-xl">
-      <img :src="'/storage/images/'+project.image_url"
+      <img :src="project.image_url"
            v-if="project.image_url !== null"
            alt="Project Image"
            class="w-full h-auto object-cover rounded-xl">
