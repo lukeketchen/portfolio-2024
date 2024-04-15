@@ -9,6 +9,7 @@ const model = defineModel({
 const props = defineProps({
   placeholder: String,
   label: String,
+  textClass: String,
   required: Boolean,
 });
 
@@ -25,11 +26,11 @@ defineExpose({focus: () => input.value.focus()});
 
 <template>
   <div class="text-xs" v-if="model">{{ label }}</div>
-  <input
-      class="border-b border-x-0 border-t-0 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 shadow-sm w-full"
-      :class="{'mt-4' : !model}, {'border-red-500' : required && !model}"
-      :placeholder="placeholder"
+  <textarea
+      class="border-gray-200 w-full focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
+      :class="textClass , {'border-red-500' : required && !model}"
       v-model="model"
+      :placeholder="placeholder"
       ref="input"
   />
 </template>

@@ -1,13 +1,7 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/vue3';
-import {onMounted} from "vue";
-import CreateProjectComponent from "@/Components/Auth/CreateProjectComponent.vue";
 
-
-onMounted(() => {
-  console.log('Dashboard page mounted');
-});
 </script>
 
 <template>
@@ -21,7 +15,7 @@ onMounted(() => {
     <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg md:p-4">
-          <CreateProjectComponent />
+          Home
         </div>
       </div>
     </div>

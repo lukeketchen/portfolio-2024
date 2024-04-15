@@ -17,12 +17,16 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::group(['prefix' => '/admin'], function () {
 //        Route::resource('/projects', AdminProjectsController::class);
-
+        Route::resource('/admin-projects', AdminProjectsController::class);
 
 //    })->middleware('auth:api');
     })->middleware('auth:sanctum');
 
+//        Route::middleware('auth:sanctum')->group(function () {
+//            Route::resource('/admin-projects', AdminProjectsController::class);
+//        });
+//    });
 
-    Route::resource('/admin/projects', AdminProjectsController::class);
+//    Route::resource('/admin/projects', AdminProjectsController::class);
 });
 

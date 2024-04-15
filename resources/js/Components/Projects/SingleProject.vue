@@ -10,7 +10,6 @@ const props = defineProps({
 
 const loading = ref(true);
 const project = ref({});
-const markdown = ref("# Hello World");
 
 function getProject() {
   axios.get(`/projects/${props.projectId}`)
@@ -29,9 +28,6 @@ onMounted(() => {
 });
 
 const markdownToHtml = computed(() => { return project.value.content ? marked(project.value.content) : ''});
-const markdownInputToHtml = computed(() => { return marked(markdown.value)});
-
-
 </script>
 
 <template>
@@ -46,9 +42,5 @@ const markdownInputToHtml = computed(() => { return marked(markdown.value)});
     <h2>{{ project.description }}</h2>
     <div v-html="markdownToHtml">
     </div>
-    <!--    <textarea v-model="markdown"-->
-    <!--              class="mt-6 border-t-2">-->
-    <!--  </textarea>-->
-    <!--    <div v-html="markdownInputToHtml"></div>-->
   </div>
 </template>

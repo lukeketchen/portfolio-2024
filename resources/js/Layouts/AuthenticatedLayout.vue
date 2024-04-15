@@ -35,6 +35,12 @@ const showingNavigationDropdown = ref(false);
                 <NavLink :href="route('home')">
                   Guest View
                 </NavLink>
+                <NavLink :href="route('admin_projects')" :active="route().current('admin_projects')">
+                  Projects
+                </NavLink>
+                <NavLink :href="route('admin_articles')" :active="route().current('admin_articles')">
+                  Articles
+                </NavLink>
               </div>
             </div>
 
@@ -117,6 +123,15 @@ const showingNavigationDropdown = ref(false);
           <div class="pt-2 pb-3 space-y-1">
             <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
               Dashboard
+            </ResponsiveNavLink>
+            <ResponsiveNavLink :href="route('home')" :active="route().current('home')">
+              Guest View
+            </ResponsiveNavLink>
+            <ResponsiveNavLink :href="route('admin_projects')" :active="route().current('admin_projects')">
+              Projects
+            </ResponsiveNavLink>
+            <ResponsiveNavLink :href="route('admin_articles')" :active="route().current('admin_articles')">
+              Articles
             </ResponsiveNavLink>
           </div>
 
