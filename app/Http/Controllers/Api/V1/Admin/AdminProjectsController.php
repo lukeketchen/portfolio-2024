@@ -90,6 +90,7 @@ class AdminProjectsController extends BaseController
                 }
 
                 $model->status = $request->get('is_active') ? 'active' : 'draft';
+                $model->start_date = $request->get('start_date') ? $request->get('start_date') : now();
                 $model->save();
 
                 return $this->sendResponse($model, 'Success model created');
