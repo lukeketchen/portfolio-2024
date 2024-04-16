@@ -27,9 +27,9 @@ const profileImage = ref(new URL(`/public/images/profile pic 2019.png`, import.m
         </div>
       </div>
       <div class="mt-8">
-        <PrimaryButton>
+        <a href="/files/Luke Ketchen Resume.pdf" class="btn" target="_blank">
           Download Resume
-        </PrimaryButton>
+        </a>
       </div>
     </div>
     <div class="w-1/2 flex items-center justify-center">
