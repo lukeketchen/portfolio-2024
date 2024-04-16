@@ -14,7 +14,6 @@ const project = ref({});
 function getProject() {
   axios.get(`/projects/${props.projectId}`)
       .then(response => {
-        console.log(response.data.data)
         project.value = response.data.data;
         loading.value = false;
       })
