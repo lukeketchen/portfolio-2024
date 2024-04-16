@@ -15,11 +15,6 @@ const props = defineProps({
 
 <template>
   <Layout>
-    <template #underHeader>
-      <div class="flex justify-end pr-2 md:pr-12">
-        <CurrentWeatherComponent />
-      </div>
-    </template>
 
     <template #default>
       <SingleProject :project-id="projectId" />
