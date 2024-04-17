@@ -4,8 +4,10 @@ import {defineProps, onMounted, ref, computed} from "vue";
 import {marked} from "marked";
 
 const props = defineProps({
-  projectId: String,
-  required: true
+  projectId: {
+    type: String,
+    required: true,
+  },
 });
 
 const loading = ref(true);
@@ -31,9 +33,9 @@ const markdownToHtml = computed(() => { return project.value.content ? marked(pr
 
 <template>
   <div v-if="!loading">
-    <div class="rounded-xl">
+    <div class="rounded-xl"
+         v-if="project.image_url !== null">
       <img :src="project.image_url"
-           v-if="project.image_url !== null"
            alt="Project Image"
            class="w-full h-auto object-cover rounded-xl">
     </div>

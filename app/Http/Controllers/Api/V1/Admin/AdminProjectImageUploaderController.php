@@ -33,9 +33,9 @@ class AdminProjectImageUploaderController extends BaseController
             $image = $request->file('image_file');
 
             $name = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = storage_path('app/public/images');
+            $destinationPath = storage_path('app/public/images/projects');
             $image->move($destinationPath, $name);
-            $model->image_url = '/images/' . $name;
+            $model->image_url = '/storage/images/projects/' . $name;
             $model->save();
 
             return $this->sendResponse($model, 'Success model created');
