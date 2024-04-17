@@ -228,7 +228,7 @@ function setProjectImage(event) {
   </div>
 
   <Modal :show="showModal"
-         :closeable="false"
+         :closeable="true"
          @close="showModal = false">
     <div class="p-8 relative">
       <h1 class="text-2xl font-bold text-gray-400 opacity-50">
