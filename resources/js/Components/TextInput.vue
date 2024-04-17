@@ -9,7 +9,10 @@ const model = defineModel({
 const props = defineProps({
   placeholder: String,
   label: String,
-  required: Boolean,
+  required: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const input = ref(null);

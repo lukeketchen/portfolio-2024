@@ -10,8 +10,6 @@ const viewType = ref({
 });
 
 function setViewType(type) {
-  console.log(type)
-
   if (type === 'list') {
     viewType.value.list = true;
     viewType.value.new = false;

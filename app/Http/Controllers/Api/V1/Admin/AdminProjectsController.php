@@ -43,10 +43,6 @@ class AdminProjectsController extends BaseController
                 'required',
                 'string',
             ],
-            'image_url' => [
-                'nullable',
-                'string',
-            ],
             'github_url' => [
                 'nullable',
                 'string',
@@ -73,7 +69,7 @@ class AdminProjectsController extends BaseController
             ],
             'is_active' => [
                 'boolean',
-            ]
+            ],
         ];
 
         $validator = Validator::make($request->all(), $dataArray);
@@ -89,6 +85,7 @@ class AdminProjectsController extends BaseController
                     }
                 }
 
+                $model->image_url = '/images/temp_image.jpg';
                 $model->status = $request->get('is_active') ? 'active' : 'draft';
                 $model->start_date = $request->get('start_date') ? $request->get('start_date') : now();
                 $model->save();
@@ -117,23 +114,15 @@ class AdminProjectsController extends BaseController
     {
         $dataArray = [
             'title' => [
-                'required',
                 'string',
             ],
             'short_description' => [
-                'required',
                 'string',
             ],
             'description' => [
-                'required',
                 'string',
             ],
             'content' => [
-                'required',
-                'string',
-            ],
-            'image_url' => [
-                'nullable',
                 'string',
             ],
             'github_url' => [
@@ -162,7 +151,7 @@ class AdminProjectsController extends BaseController
             ],
             'is_active' => [
                 'boolean',
-            ]
+            ],
         ];
         $validator = Validator::make($request->all(), $dataArray);
 

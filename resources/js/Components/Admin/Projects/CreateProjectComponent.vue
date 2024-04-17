@@ -4,23 +4,10 @@ import PrimaryButton from "@/Components/PrimaryButton.vue";
 import TextInput from "@/Components/TextInput.vue";
 import TextAreaInput from "@/Components/TextAreaInput.vue";
 import {marked} from "marked";
-import SecondaryButton from "@/Components/SecondaryButton.vue";
+import Modal from "@/Components/Modal.vue";
 
-const props = defineProps({
-  project: {
-    type: Object,
-    required: false
-  }
-});
-const existingProject = ref(false);
 const loading = ref(false);
-
-onMounted(() => {
-  if (props.project) {
-    newProject.value = props.project;
-    existingProject.value = true;
-  }
-});
+const showModal = ref(false);
 
 const newProject = ref({
   title: '',
@@ -28,12 +15,13 @@ const newProject = ref({
   description: '',
   content: '',
   image_url: null,
-  github_url: null,
-  demo_url: null,
+  github_url: '',
+  demo_url: '',
   technologies: '',
   duration: '',
   framework: 'laravel',
-  is_active: false
+  is_active: false,
+  image_file: null
 })
 
 function createProject() {
@@ -43,58 +31,17 @@ function createProject() {
           title: "Success!",
           text: "Project created successfully",
           icon: "success",
+          timer: 500,
+          buttons: false,
         })
-        clearProject();
-      })
-      .catch(error => {
-        swal({
-          title: "oh no!",
-          text: error.message,
-          icon: "error",
-        });
-      });
-}
+        newProject.value.id = response.data.data.id;
 
-function getProject() {
-  loading.value = true;
-  axios.get(`/admin/admin-projects/${newProject.value.id}`)
-      .then(response => {
-        console.log(response.data);
-        newProject.value = response.data;
-        loading.value = false;
-      })
-      .catch(error => {
-        console.log(error);
-        swal({
-          title: "oh no!",
-          text: error.message,
-          icon: "error",
-        });
-      });
-}
+        console.log('RESPONSE')
+        console.log(response.data.data.id)
 
-function saveProject() {
-  axios.put(`/admin/admin-projects/${newProject.value.id}`, newProject.value)
-      .then(response => {
-        getProject();
+        showModal.value = true;
       })
       .catch(error => {
-        console.log(error);
-        swal({
-          title: "oh no!",
-          text: error.message,
-          icon: "error",
-        });
-      });
-}
-
-function deleteProject() {
-  axios.delete(`/admin/admin-projects/${newProject.value.id}`)
-      .then(response => {
-        clearProject();
-      })
-      .catch(error => {
-        console.log(error);
         swal({
           title: "oh no!",
           text: error.message,
@@ -123,6 +70,30 @@ const markdownInputToHtml = computed(() => {
   return !loading.value ? marked(newProject.value.content) : '';
 });
 
+function setProjectImage(event) {
+  const data = new FormData();
+  data.append('image_file', event.target.files[0]);
+  data.append('project_id', newProject.value.id);
+
+  axios.post(`/admin/admin-project-image-uploader`, data).then(response => {
+    swal({
+      title: "Success!",
+      text: "Project image added successfully",
+      icon: "success",
+      timer: 500,
+      buttons: false,
+    })
+
+    window.location.href = '/admin/project/' + newProject.value.id;
+  }).catch(error => {
+    swal({
+      title: "oh no!",
+      text: error.message,
+      icon: "error",
+    })
+  })
+}
+
 </script>
 
 <template>
@@ -131,17 +102,7 @@ const markdownInputToHtml = computed(() => {
       <h1 class="text-gray-400 opacity-40 font-bold">
         Create Project
       </h1>
-      <div v-if="existingProject">
-        <SecondaryButton @click="deleteProject">
-          Delete Project
-        </SecondaryButton>
-        <PrimaryButton class=" ml-4"
-                       @click="saveProject">
-          Save Project
-        </PrimaryButton>
-      </div>
       <PrimaryButton class=""
-                     v-else
                      @click="createProject">
         Create Project
       </PrimaryButton>
@@ -171,9 +132,6 @@ const markdownInputToHtml = computed(() => {
 
     <div class="grid grid-cols-2 gap-4 mt-8">
       <div>
-        <TextInput v-model="newProject.image_url" label="Image URL" placeholder="Image URL" />
-      </div>
-      <div>
         <TextInput v-model="newProject.github_url" label="Github URL" placeholder="Github URL" />
       </div>
       <div>
@@ -202,20 +160,25 @@ const markdownInputToHtml = computed(() => {
     </div>
 
     <div class="flex justify-end">
-      <div v-if="existingProject">
-        <SecondaryButton @click="deleteProject">
-          Delete Project
-        </SecondaryButton>
-        <PrimaryButton class=" ml-4"
-                       @click="saveProject">
-          Save Project
-        </PrimaryButton>
-      </div>
       <PrimaryButton class=""
-                     v-else
                      @click="createProject">
         Create Project
       </PrimaryButton>
     </div>
   </div>
+
+  <Modal :show="showModal"
+         :closeable="false"
+         @close="showModal = false">
+    <div class="p-8 relative">
+      <h1 class="text-2xl font-bold text-gray-400 opacity-50">
+        Add Image
+      </h1>
+      <p>
+        Select an image to upload
+      </p>
+
+      <input type="file" @change="setProjectImage" accept="image/*" />
+    </div>
+  </Modal>
 </template>

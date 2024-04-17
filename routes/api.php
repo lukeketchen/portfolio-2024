@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\Admin\AdminProjectImageUploaderController;
 use App\Http\Controllers\Api\V1\Admin\AdminProjectsController;
 use App\Http\Controllers\Api\V1\ArticleController;
 use App\Http\Controllers\Api\V1\ForecastController;
@@ -13,7 +14,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::group(['prefix' => 'v1'], function () {
-    
+
     /**
      * Open Routes
      */
@@ -26,6 +27,7 @@ Route::group(['prefix' => 'v1'], function () {
      */
     Route::group(['prefix' => '/admin'], function () {
         Route::resource('/admin-projects', AdminProjectsController::class);
+        Route::resource('/admin-project-image-uploader', AdminProjectImageUploaderController::class);
     })->middleware('auth:sanctum');
 
 });
