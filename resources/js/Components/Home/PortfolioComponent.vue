@@ -28,9 +28,9 @@ onMounted(() => {
   <div id="portfolio" class="my-56">
     <div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <a :href="'/project/' + project.id" v-for="project in projects" :key="project.title" class="bg-white shadow-lg rounded-lg overflow-hidden">
+        <a :href="'/project/' + project.id" v-for="project in projects" :key="project.title" class="bg-white shadow-lg border rounded-lg overflow-hidden">
           <img :src="project.image_url" alt="portfolio" class="w-full h-56 object-cover">
-          <div class="p-4">
+          <div class="p-4 border-t">
             <div class="font-bold text-xl mb-2">{{ project.title }}</div>
             <p class="text-gray-700 text-base">{{ project.short_description }}</p>
           </div>

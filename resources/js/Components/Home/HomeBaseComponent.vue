@@ -2,10 +2,7 @@
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import {ref} from "vue";
 
-// make a list of things i know
-
-
-const profileImage = ref(new URL(`/public/images/profile pic 2019.png`, import.meta.url).href);
+const profileImage = ref(new URL(`/public/images/porttrait-2024-no-bg.png`, import.meta.url).href);
 
 
 </script>
